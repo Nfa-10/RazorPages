@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using RazorCRUD.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 //Another sevice
-builder.Services.AddDbContext<BookDbContext>(options => options.UseSqlServer());
+builder.Services.AddDbContext<BookDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RazorCRUDConnectionString")));
 
 var app = builder.Build();
 
