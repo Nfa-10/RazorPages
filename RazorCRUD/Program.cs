@@ -1,7 +1,12 @@
+using RazorCRUD.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+//Another sevice
+builder.Services.AddDbContext<BookDbContext>(options => options.UseSqlServer());
 
 var app = builder.Build();
 
